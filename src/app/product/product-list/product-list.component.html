@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row row-cols-3">
+  <div class="row row-cols-4">
     <div class="col mt-4" *ngFor='let product of products.results'>
       <div class="card cur-hand product-card">
         <div [routerLink]="['/product', getProductId(product.url)]">
