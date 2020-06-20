@@ -7,13 +7,15 @@ import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductImageComponent } from './product/product-image/product-image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductImageComponent
   ],
   imports: [
     BrowserModule,

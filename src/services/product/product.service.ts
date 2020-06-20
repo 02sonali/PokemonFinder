@@ -12,4 +12,9 @@ export class ProductService {
     let productUrl = " http://pokeapi.co/api/v2/pokemon/?limit=30 &offset=0";
     return this.http.get(productUrl);
   }
+
+  getProductDetails(url) {
+    let productUrl = url;
+    return this.http.get(productUrl);
+  }
 }
