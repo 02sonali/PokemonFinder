@@ -14,10 +14,14 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe({
       next: products => {
         this.products = products;
-        console.log(this.products.results);
       },
       error: err=> this.errorMsg = err
     })
+  }
+
+  getProductId(url) {
+    let arr = url.split('/');
+    return arr[arr.length - 2];
   }
 
 }

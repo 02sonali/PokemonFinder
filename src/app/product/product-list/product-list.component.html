@@ -1,10 +1,12 @@
 <div class="container">
   <div class="row row-cols-3">
     <div class="col mt-4" *ngFor='let product of products.results'>
-      <div class="card" style="width: 18rem;" >
-       <product-image [productDetailUrl]="product.url"></product-image>
-        <div class="card-body">
-          <p class="card-text">{{product.name}}</p>
+      <div class="card cur-hand product-card">
+        <div [routerLink]="['/product', getProductId(product.url)]">
+          <product-image [productDetailUrl]="product.url"></product-image>
+          <div class="card-body">
+            <p class="card-text">{{product.name | titlecase}}</p>
+          </div>
         </div>
       </div>
     </div>

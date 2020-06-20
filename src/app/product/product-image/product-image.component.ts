@@ -16,9 +16,7 @@ export class ProductImageComponent implements OnInit {
     this.productService.getProductDetails(this.productDetailUrl).subscribe({
       next: product => {
         this.productDetail = product;
-        console.log(this.productDetail);
       }   
     })
   }
-
 }

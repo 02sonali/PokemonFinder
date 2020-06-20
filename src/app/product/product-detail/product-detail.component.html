@@ -1,1 +1,20 @@
-<p>product-detail works!</p>
+<div class="container">
+    <div *ngIf="product">
+        <label>{{product.name}} </label>
+        <div>
+            <div *ngFor="let item of product.types">
+                {{item.type.name}}
+            </div>
+        </div>
+        <div class="profile-div">
+            <h4>Profile</h4>
+            <div>
+                <label>Height</label>{{product.height}}
+                <label>Weight</label>{{product.weight}}
+                <label> Catch Rate</label>{{product.capture_rate}}
+                <label> Gender Ratio</label>{{product.gender_rate}}
+                <label> Abilities</label><span *ngFor="let abilityItem of product.abilities">{{abilityItem.ability.name}}</span>
+            </div>
+        </div>
+    </div>
+</div>
