@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit {
     if(str.length >= 3) {
       this.productService.searchProduct(str).subscribe({
         next: product => {
-          let productName = product.name.toLowerCase();
+          let productName = product.name ? product.name.toLowerCase() : '';
           this.router.navigate(['/product', productName]);
         }
       })
