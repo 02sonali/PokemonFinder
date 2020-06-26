@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 // import { Output } from '@angular/core';
 @Component({
   selector: 'app-footer',
@@ -8,6 +8,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class FooterComponent implements OnInit {
   @Output() nextEvent = new EventEmitter();
   @Output() previousEvent = new EventEmitter();
+  @Input() nextUrl:String;
+  @Input() previousUrl:String;
+  
   constructor() { }
 
   ngOnInit(): void {
