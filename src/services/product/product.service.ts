@@ -8,9 +8,8 @@ export class ProductService {
   constructor(private http: HttpClient) {
   }
 
-  getProducts() {
-    let productUrl = " https://pokeapi.co/api/v2/pokemon/?limit=20 &offset=0/";
-    return this.http.get(productUrl);
+  getProducts(url) {
+    return this.http.get(url);
   }
 
   getProductDetails(url) {
@@ -24,6 +23,5 @@ export class ProductService {
     let headers = new Headers();
     headers.append('Content-Type', 'multipart/form-data; boundary=something');
     return this.http.get(url);
-
   }
 }

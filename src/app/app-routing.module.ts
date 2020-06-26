@@ -6,10 +6,11 @@ import { ProductCreateComponent } from './product/product-create/product-create.
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 
 const routes: Routes = [
+  {path:'', component: ProductListComponent},
   {path:'home', component: ProductListComponent},
   {path:'product/:id', component: ProductDetailComponent},
   {path:'product-create', component: ProductCreateComponent},
-  {path:'', component: ProductListComponent}
+  
 
 ];
 
