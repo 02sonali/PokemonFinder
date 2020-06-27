@@ -1,19 +1,78 @@
-<div class="container">
+<div class="container product-detail">
+    
     <div *ngIf="product">
-        <label>{{product.name}} </label>
-        <div>
-            <div *ngFor="let item of product.types">
-                {{item.type.name}}
+        
+        <div class="product-detail-name p-4 heading"><span>{{product.name | titlecase}}</span></div>
+        <div class="container p-4">
+            <div class="row">
+                <div class="col">
+                    <img src={{product.sprites.front_default}} alt="pokemon-image" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div *ngFor="let item of product.types" class="pokemon-type float-left ml-2" appPokemonTypeColor [type]='item.type.name'>
+                        {{item.type.name | titlecase}}
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="profile-div">
-            <h4>Profile</h4>
-            <div>
-                <label>Height</label>{{product.height}}
-                <label>Weight</label>{{product.weight}}
-                <label> Catch Rate</label>{{product.capture_rate}}
-                <label> Gender Ratio</label>{{product.gender_rate}}
-                <label> Abilities</label><span *ngFor="let abilityItem of product.abilities">{{abilityItem.ability.name}}</span>
+       
+        <div class="profile-container">
+            <div class="heading p-2">Profile</div>
+            <div class="container p-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <label>Height</label>
+                            </div>
+                            <div class="col">
+                                {{product.height}} m
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label> Catch Rate</label>
+                            </div>
+                            <div class="col">
+                                {{product.capture_rate}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label> Abilities</label>
+                            </div>
+                            <div class="col">
+                                <span *ngFor="let abilityItem of product.abilities; let i=index; ">
+                                    <span>{{abilityItem.ability.name | titlecase}}</span>
+                                    <span *ngIf='i !== product.abilities.length-1'>, </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <label>Weight</label>
+                            </div>
+                            <div class="col">
+                                {{product.weight}} kg
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label> Gender Ratio</label>
+                            </div>
+                            <div class="col">
+                                {{product.gender_rate}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label> Hatch Steps</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

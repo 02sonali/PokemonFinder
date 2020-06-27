@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
     this.getProducts(this.nextUrl);
   }
 
-  getProducts(url):void {
+  getProducts(url:String):void {
     this.productService.getProducts(url).subscribe({
       next: products => {
         this.products = products;
@@ -28,16 +28,14 @@ export class ProductListComponent implements OnInit {
   }
 
   getNext():void{
-    console.log("get next");
     this.getProducts(this.nextUrl);
   }
 
   getPrevious():void {
-    console.log("get previous");
     this.getProducts(this.previousUrl);
   }
 
-  getProductId(url) {
+  getProductId(url:String) {
     let arr = url.split('/');
     return arr[arr.length - 2];
   }

@@ -11,8 +11,9 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductImageComponent } from './product/product-image/product-image.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductCreateComponent } from './product/product-create/product-create.component';
-import { CardHighlightDirective } from './product/card-highlight.directive';
+import { CardHighlightDirective } from './product/directives/card-highlight.directive';
 import { FooterComponent } from './footer/footer.component';
+import { PokemonTypeColorDirective } from './product/directives/pokemon-type-color.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './footer/footer.component';
     ProductDetailComponent,
     ProductCreateComponent,
     CardHighlightDirective,
-    FooterComponent
+    FooterComponent,
+    PokemonTypeColorDirective,
   ],
   imports: [
     BrowserModule,
