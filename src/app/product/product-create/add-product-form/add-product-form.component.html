@@ -1,1 +1,48 @@
-<p>add-product-form works!</p>
+<div class="container">
+    <form (ngSubmit)="onSubmit(registerForm)" class="needs-validation" #registerForm="ngForm">
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" [(ngModel)]="registrationFields.name" #name="ngModel" minlength="3" required>
+                <!-- <div *ngIf="!name.valid && (name.dirty || name.touched)" class="error-message">
+                    Name is required
+                </div> -->
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="description">Description</label>
+                <input class="form-control" name="description" [(ngModel)]="registrationFields.description" minlength="3" required/>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" name="price" [(ngModel)]="registrationFields.price" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-3 mb-3">
+                <label for="category">Category</label>
+                <select class="custom-select" [(ngModel)]="registrationFields.category" name="category">
+                    <option value="electronics">Electronics</option>
+                    <option value="clothes">Clothes</option>
+                    <option value="blankets">Blankets</option>
+                </select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="imageurl">Image Url</label>
+                <input type="text" class="form-control" name="imageurl" [(ngModel)]="registrationFields.image" required>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="phone">Phone</label>
+                <input type="text" placeholder="Phone" class="form-control" name="phone" [(ngModel)]="registrationFields.phone" required>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="phoneType">Phone Type</label>
+                <select class="custom-select" [(ngModel)]="registrationFields.phoneType" name="phoneType">
+                    <option value="landline">Landline</option>
+                    <option value="mobile">Mobile</option>
+                </select> 
+            </div>
+        </div>
+        <button class="btn btn-secondary" (click)="registerForm.reset()">Reset</button>
+        <button type="submit" class="btn btn-primary ml-4" [disabled]="!registerForm.form.valid">Save</button>
+    </form>
+</div>

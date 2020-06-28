@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product-form',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProductFormComponent implements OnInit {
 
+  registrationFields= {name: "", price: "", description: "", phone:"", phoneType: "", category: "", image: "" };
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(form: NgForm) {
+    console.log(form.value);
   }
 
 }
