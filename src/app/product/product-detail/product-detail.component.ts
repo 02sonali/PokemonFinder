@@ -19,13 +19,14 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProductDetails(url).subscribe({
       next: product => {
         this.product = product;
+        this.productService.getSpeciesInfo(this.product.species.url).subscribe({
+          next: itemDetails => {
+            this.speciesInfo = itemDetails;
+            this.genusInfo = this.speciesInfo.genera.find(species => species.language.name === "en");
+          }
+        });
       }
     });
-    this.productService.getSpeciesInfo(id).subscribe({
-      next: itemDetails => {
-        this.speciesInfo = itemDetails;
-        this.genusInfo = this.speciesInfo.genera.find(species => species.language.name === "en");
-      }
-    });
+   
   }
 }

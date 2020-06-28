@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ProductCreateComponent implements OnInit {
-  registrationFields= {name: "", price: "", description: "", availableQuantity:0, status:"active"};
+  registrationFields= {name: "", price: 0, description: "", phone:"", phoneType: "", category: "", image: "" };
   constructor() { }
 
   ngOnInit(): void {

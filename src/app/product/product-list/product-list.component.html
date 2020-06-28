@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row row-cols-4">
-    <div class="col mt-4" *ngFor='let product of products.results'>
+    <div class="col mt-4" *ngFor='let product of products.results; let i=index;' >
       <div class="card cur-hand product-card" cardHighlight>
         <div [routerLink]="['/product', getProductId(product.url)]">
           <product-image [productDetailUrl]="product.url"></product-image>

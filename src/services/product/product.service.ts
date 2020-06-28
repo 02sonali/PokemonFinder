@@ -18,10 +18,10 @@ export class ProductService {
     return this.http.get(url);
   }
 
-  getSpeciesInfo(id) {
+  getSpeciesInfo(url) {
     let headers = new Headers();
     headers.append('Content-Type', 'multipart/form-data; boundary=something');
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
+    return this.http.get(`${url}`)
   }
 
   searchProduct(userInput:String) {
