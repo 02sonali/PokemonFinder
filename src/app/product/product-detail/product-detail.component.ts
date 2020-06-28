@@ -8,6 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
   product:any = null;
+  speciesInfo:any = null;
+  genusInfo: Object = null;
   constructor(private productService: ProductService, private route: ActivatedRoute) {
   }
 
@@ -18,7 +20,12 @@ export class ProductDetailComponent implements OnInit {
       next: product => {
         this.product = product;
       }
-    })
+    });
+    this.productService.getSpeciesInfo(id).subscribe({
+      next: itemDetails => {
+        this.speciesInfo = itemDetails;
+        this.genusInfo = this.speciesInfo.genera.find(species => species.language.name === "en");
+      }
+    });
   }
-
 }

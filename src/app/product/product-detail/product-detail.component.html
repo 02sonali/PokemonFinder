@@ -1,18 +1,32 @@
 <div class="container product-detail">
     
-    <div *ngIf="product">
+    <div *ngIf="product && speciesInfo">
         
         <div class="product-detail-name p-4 heading"><span>{{product.name | titlecase}}</span></div>
         <div class="container p-4">
             <div class="row">
                 <div class="col">
-                    <img src={{product.sprites.front_default}} alt="pokemon-image" class="img-thumbnail">
+                    <img src={{product.sprites.front_shiny}} alt="pokemon-image" class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div *ngFor="let item of product.types" class="pokemon-type float-left ml-2" appPokemonTypeColor [type]='item.type.name'>
                         {{item.type.name | titlecase}}
                     </div>
+                    <div class="float-right"><h2>#{{product.order}}</h2></div>
+                    <div class="clear-float"></div>
+                    <div *ngFor="let item of product.stats" class="p-2 row">
+                        <div class="col"> {{item.stat.name | titlecase}} </div>
+                        <div class="col">
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" [ngStyle]="{'width': item.base_stat +'%'}" aria-valuenow={{item.base_stat}} aria-valuemin="0" aria-valuemax="100">{{item.base_stat}}</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="p-4">
+                <h6>{{genusInfo ? genusInfo.genus : ''}}</h6>
+                <p>{{speciesInfo.flavor_text_entries[0].flavor_text}}</p>
             </div>
         </div>
        
@@ -26,7 +40,7 @@
                                 <label>Height</label>
                             </div>
                             <div class="col">
-                                {{product.height}} m
+                                {{product.height/10}} m
                             </div>
                         </div>
                         <div class="row">
@@ -34,7 +48,18 @@
                                 <label> Catch Rate</label>
                             </div>
                             <div class="col">
-                                {{product.capture_rate}}
+                                {{speciesInfo.capture_rate}} %
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label> Egg Groups</label>
+                            </div>
+                            <div class="col">
+                                <span *ngFor="let group of speciesInfo.egg_groups; let i=index; ">
+                                    <span>{{group.name | titlecase}}</span>
+                                    <span *ngIf='i !== speciesInfo.egg_groups.length-1'>, </span>
+                                </span>
                             </div>
                         </div>
                         <div class="row">
@@ -63,12 +88,15 @@
                                 <label> Gender Ratio</label>
                             </div>
                             <div class="col">
-                                {{product.gender_rate}}
+                                {{100 - speciesInfo.gender_rate/8 * 100}} % Males, {{speciesInfo.gender_rate/8 * 100}} % Females 
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label> Hatch Steps</label>
+                            </div>
+                            <div class="col">
+                                {{255 * (speciesInfo.hatch_counter + 1) }}
                             </div>
                         </div>
                     </div>
