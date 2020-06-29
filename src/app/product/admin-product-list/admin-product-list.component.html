@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row row-cols-4">
+      <div class="col mt-4" *ngFor='let product of products; let i=index;' >
+        <div class="card cur-hand product-card" cardHighlight>
+          <div>
+            <img src={{product.imageurl}} class="card-img-top" alt="product-image">
+            <div class="card-body">
+              <p class="card-text">{{product.name | titlecase}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

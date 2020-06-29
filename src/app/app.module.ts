@@ -15,6 +15,7 @@ import { CardHighlightDirective } from './product/directives/card-highlight.dire
 import { FooterComponent } from './footer/footer.component';
 import { PokemonTypeColorDirective } from './product/directives/pokemon-type-color.directive';
 import { AddProductFormComponent } from './product/product-create/add-product-form/add-product-form.component';
+import { AdminProductListComponent } from './product/admin-product-list/admin-product-list.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AddProductFormComponent } from './product/product-create/add-product-fo
     FooterComponent,
     PokemonTypeColorDirective,
     AddProductFormComponent,
+    AdminProductListComponent,
   ],
   imports: [
     BrowserModule,
